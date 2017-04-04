@@ -10,10 +10,9 @@ using CibusMVC.Models;
 
 namespace CibusMVC.Controllers
 {
+
     public class AdministradorRestauranteController : Controller
     {
-
-
 
 
         // GET: AdministradorRestaurante
