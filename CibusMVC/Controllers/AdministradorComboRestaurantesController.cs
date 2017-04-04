@@ -14,7 +14,7 @@ using Microsoft.AspNet.Identity.Owin;
 namespace CibusMVC.Controllers
 {
 
-    [Authorize]
+   // [Authorize]
     public class AdministradorComboRestaurantesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
