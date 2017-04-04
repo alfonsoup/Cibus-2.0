@@ -1,0 +1,55 @@
+﻿@model CibusMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<div style="margin:3em">
+
+    <h2>DETALLES DEL USUARIO</h2>
+    <hr style="border-color: Highlight;border-width:0.5em; " />
+
+    <div>
+        <strong>Detalles:</strong>
+        
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Restaurante.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Restaurante.Nombre)
+            </dd>
+
+        </dl>
+    </div>
+    <hr style="border-color: Highlight;border-width:0.4em; " />
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IdUsuario }) |
+        @Html.ActionLink("Volver a usuarios", "Index")
+    </p>
+</div>

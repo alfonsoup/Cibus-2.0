@@ -1,0 +1,40 @@
+﻿
+
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="e-divider-4"></li>
+        <li class="sidebar-brand">
+            <a href="#"><img src="~/assets/custom/images/logo01.png" width="180" alt="logo"></a>
+        </li>
+        <li class="e-divider-4"></li>
+        <li><a href='@Url.Action("Index","Restaurantes")' class="current"><span class="glyphicon glyphicon-home" aria-hidden="true" style="font-size: 18px"></span>- Inicio</a></li>
+
+        <li><a href='@Url.Action("Index","ShoppingCart")' class="current"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="font-size: 18px"></span>- Pedido</a></li>
+
+       
+
+
+
+
+    </ul>
+    <div class="e-divider-3"><hr></div>
+
+    <div class="port-filter text-right grid-item">
+        <ul>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "1" })' class="current">Burguer King</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "2" })' class="current">McDonald's</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "3" })' class="current">Pizza Hut</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "4" })' class="current">Domino's Pizza</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "5" })' class="current">Kentucky Fried Chicken</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "6" })' class="current">Wendy's</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "7" })' class="current">Taco Bell</a></li>
+            <li><a href='@Url.Action("Index", "Combo", new {  id = "8" })' class="current">T.G.I Friday's</a></li>
+            </ul>
+
+    </div>
+        
+    <!--<a href="@Url.Action("Index", "ShoppingCart")">
+        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="font-size: 42px"></span>
+        </a>
+ -->
+</div>

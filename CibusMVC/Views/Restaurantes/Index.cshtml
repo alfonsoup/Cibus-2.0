@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CibusMVC.Models.Restaurante>
+
+@{
+    ViewBag.Title = "Restaurantes";
+}
+
+
+<!-- ya lo cambie-->
+<video autoplay loop id="my-video" class="video" muted preload="auto" width="1000" height="660"
+       data-setup="{}">
+    <source src="~/assets/custom/video/Mc2.mp4" type='video/mp4'>
+
+    <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+</video>
+
+
+<!--  Portfolio Block  -->
+<section id="portfolio" class="e-block e-block-skin pt-section" data-stellar-background-ratio="0.5" data-name="Portfolio">
+
+    <div class="light">
+
+
+        <div class="dividewhite4"></div>
+
+
+        <div class="grid  container-fluid ">
+            <div id="posts" class="row popup-container">
+                @foreach (var restaurante in Model)
+                {
+                        <div data-category="@restaurante.Tipo " class="grid-item @restaurante.Tipo col-lg-3 col-md-4 col-sm-6 nopadding">
+                            <div class="item-wrap">
+                                <figure  class="effect-goliath">
+                                    <img src="@Url.Content(restaurante.Logo)" class="grid-item img-responsive" alt="img11" />
+                                    <figcaption>
+                                        <div class="fig-description">
+                                            <h3>@Html.DisplayFor(modelItem => restaurante.Nombre)</h3>
+
+
+                                        </div>
+                                        <a href='@Url.Action("Index","Combo",new { id=restaurante.IdRestaurante})'>Ver Mas</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                
+
+                }
+                </div>
+            </div>
+
+        </div>
+</section>
+<!-- /Portfolio Block  -->
+

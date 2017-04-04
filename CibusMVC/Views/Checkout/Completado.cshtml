@@ -1,0 +1,15 @@
+﻿@model CibusMVC.Models.Pedido
+
+@{
+    ViewBag.Title = "Completado";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<h2>Checkout Complete</h2>
+<p>Gracias por su pedido! El numero de su pedido es: @Model.IdPedido
+</p>
+<p>
+   Que le pareceria hacer otra orden 
+    @Html.ActionLink("Usando Cibus",
+"Index", "Restaurantes")
+</p>

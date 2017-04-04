@@ -1,0 +1,57 @@
+﻿@model CibusMVC.Models.ComboRestaurante
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+
+<h2>Menu</h2>
+
+@Html.AntiForgeryToken()
+
+<section id="blog" class="padding-side-50">
+    <div class="e-divider-8"></div>
+    <div class="e-divider-4"></div>
+    <div class="grid container-fluid e-text-center">
+        <div class="item-wrap">
+            <figure class="effect-goliath">
+                <img src="@Url.Content(Model.Restaurante.Logo)" class="img-responsive" alt="img11" />
+
+            </figure>
+            <h3>@Html.DisplayFor(modelItem => Model.Restaurante.Nombre)</h3>
+        </div>
+
+
+        <div id="posts" class="row popup-container">
+
+            @foreach (var item in Model.)
+
+            {
+                <div class="grid-item grid-sizer branding design @*col-md-4*@ col-sm-6">
+                    <div class="item-wrap">
+                        <figure id="@Html.DisplayFor(modelItem => item.IdCombo)" class="">
+
+                            <img src="@Url.Content(item.imgsrc)" style="width: 300px; height:350px" alt="img11" />
+                            <figcaption>
+
+                                <div class="post-header">
+                                    <h5>@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                                </div>
+                                <div class="post-entry">
+                                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                                </div>
+                                <div class="post-tag pull-right">
+                                    <span>RD$@Html.DisplayFor(modelItem => item.Precio)</span>
+                                    <button>Seleccionar</button>
+                                </div>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+

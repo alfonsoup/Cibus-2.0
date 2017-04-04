@@ -1,0 +1,43 @@
+
+
+@mixin block-regular-margins  {  padding: 130px 0 130px 0;  }
+@mixin block-short-margins    {  padding: 100px 0 100px 0;  }
+@mixin infoblock-margins      {  margin: 0 0 24px 0;  }
+@mixin block-null-margins     {  margin: 0;  }
+
+.e-block-regular    {  @include block-regular-margins;  }
+.e-block-short      {  @include block-short-margins;    }
+.e-block-null       {  @include block-null-margins;     }
+.e-block-light {
+  background: $color01;
+  color: $color10;
+  p, h2, h3, h4, h5 {  color: $color10;  }
+  a, .infoblock a   {  color: $color10;
+    &:hover {
+      color: $hovercolor;
+      text-decoration: none;
+    }
+  }
+}
+
+.e-block-centered {  text-align: center;  }
+
+.infoblock {
+  @include infoblock-margins;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .morelink {
+    font-family: $font-accident-one-bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 22px;
+    a {
+      text-decoration: none;
+      i {  margin-left: 5px;  }
+    }
+  }
+}

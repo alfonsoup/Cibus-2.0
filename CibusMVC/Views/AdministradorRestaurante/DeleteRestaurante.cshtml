@@ -1,0 +1,65 @@
+﻿@model CibusMVC.Models.Restaurante
+
+@{
+    ViewBag.Title = "DeleteRestaurante";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+    
+   <div style="margin-left:3em; margin-right:3em;margin-top:8em">
+       <h2>ELIMINAR RESTAURANTE</h2>
+
+       <h3 margin-top:3em>Esta seguro que desea eliminar este Restaurante?</h3>
+       <hr style="border-color: Highlight;border-width:0.5em; " />
+
+    <strong>Detalles:</strong>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div  class="form-actions no-color" >
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            <div style="margin-top:5em">
+                @Html.ActionLink("<<-- Volver a la lista", "Index")
+            </div>
+            
+        </div>
+    }
+</div>
+

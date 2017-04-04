@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--[if IE 9]>
+<html class="ie9" lang="en">    <![endif]-->
+<!--[if IE 8]>
+<html class="ie8" lang="en">    <![endif]-->
+<head>
+    <title>
+        CIBUS
+    </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" />
+    <meta name="keywords" />
+
+    <!-- JS -->
+
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <!-- CSS -->
+    @Styles.Render("~/bundles/css")
+
+ 
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    @RenderSection("scripts", required: false)
+
+</head>
+<body class="">
+
+
+    <!--Pre-Loader-->
+    @*<div id="preloader"><img src="~/assets/custom/images/preloader.gif" alt="01"></div>*@
+
+    <div id="wrapper" class="">
+
+        @*<a href="#menu-toggle" class="" id="menu-toggle"><span class="" aria-hidden="true"></span></a>*@
+
+        <!-- Sidebar -->
+
+        @Html.Partial("SidebarCarrito")
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Content -->
+        <div id="page-content-wrapper" class="content-wrap">
+
+            <!-- Content Sections -->
+            <div id="content">
+                <div id="content">
+
+                    @RenderBody()
+
+                </div>
+            </div>
+            <!-- /Content Sections -->
+
+        </div>
+        <!-- /Content -->
+
+    </div>
+
+
+</body>
+</html>

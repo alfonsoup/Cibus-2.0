@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CibusMVC.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<div class="col-md-3">
+    <h2>Usuarios</h2>
+</div>
+<div class="col-md-9" style="margin-top:4em; text-align:right">
+    <p>
+        @Html.ActionLink("Crear Nuevo Usuario", "Create")
+    </p>
+    </div>
+<hr class="col-md-12" style="border-color: Highlight ;border-width:0.5em; " />
+    <table class="table" style="margin:3em" >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurante.Nombre)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurante.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdUsuario }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdUsuario })
+                </td>
+            </tr>
+        }
+
+    </table>

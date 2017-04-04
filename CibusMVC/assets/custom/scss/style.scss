@@ -1,0 +1,194 @@
+// Fonts
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,400italic,500,700);
+@import url(https://fonts.googleapis.com/css?family=Dosis:300,400,500,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+// Colors
+@import "colors.scss";
+
+// Typography
+@import "typography.scss";
+
+// Buttons
+@import "buttons.scss";
+
+// Basic styles
+@import "basic.scss";
+
+// Blocks
+@import "blocks.scss";
+
+// Sections
+@import "sections.scss";
+
+
+
+// Sticky Header
+
+#content {
+  //margin-top: 230px;
+}
+.cbp-af-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 900;
+  height: 130px;
+  //overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+
+  .cbp-af-inner {  margin: 0 auto;  }
+  h1, nav {
+    line-height: 130px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .navbar-default, .navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus {
+    background-color: transparent;
+    border: none;
+  }
+  .navbar-collapse {
+    margin-top: 40px;
+    border: none;
+  }
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 3.1em;
+
+    margin: 0;
+    float: left;
+    a {
+      font-family: $font-accident-one-bold;
+      font-weight: 600;
+    }
+  }
+  .navbar-nav>li>a {
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+  nav {
+    >a {
+      margin: 0 0 0 20px;
+      font-size: 1.0em;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+  }
+  .navbar-toggle {
+    margin-top: 47px;
+    margin-right: 0;
+    -webkit-transition: margin 0.5s ease;
+    -moz-transition: margin 0.5s ease;
+    -o-transition: margin 0.5s ease;
+    transition: margin 0.5s ease;
+  }
+  &.cbp-af-header-shrink {
+    height: 90px;
+    h1, nav >a {  line-height: 90px;  }
+    h1 {  font-size: 2.0em;  }
+    .navbar-collapse {
+      margin-top: 20px;
+    }
+    .navbar-toggle {
+      margin-top: 28px;
+      padding: 9px 0px;
+    }
+  }
+}
+
+
+// Dark. Logo and top navbar links initial colors
+.navbar {
+  h1 a {color: $color10;}
+  .navbar-nav>li>a {
+    color: $color09;
+    &:hover, &:focus {color: $hovercolor;}
+  }
+  .navbar-toggle .icon-bar {
+    background-color: $color10;
+  }
+}
+
+
+// Light. Logo and top navbar links initial colors
+.navbar.header-light {
+  h1 a {color: $color00;}
+  .navbar-nav>li>a {
+    color: $color00;
+    &:hover {color: $color02;}
+    &:focus {color: $color00;}
+  }
+  .navbar-toggle .icon-bar {
+    background-color: $color00;
+  }
+}
+
+
+// Sticky header and links colors
+.cbp-af-header.cbp-af-header-shrink {
+  background: $color00;
+  h1 a {  color: $color10;  }
+  .navbar-nav>li>a {
+    color: $color09;
+    &:hover, &:focus {color: $hovercolor;}
+  }
+  .navbar-toggle .icon-bar {
+    background-color: $color10;
+  }
+}
+
+
+
+// Top menu
+.navbar-default .navbar-nav>li>a {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  //color: $color12;
+  background-color: transparent;
+}
+
+// DD Menu
+
+.dropdown-menu {
+  border-radius: 0px;
+  border: none;
+  padding: 0;
+  background: $color12;
+  >li>a {
+    padding: 9px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: $color02;
+    &:hover, &:focus {
+      color: $color00;
+      text-decoration: none;
+      background-color: $color09;
+    }
+  }
+}
+
+
+
+
+// Sidebar
+@import "sidebar-left.scss";
+
+
+// Media Querys
+@import "mediaquery.scss";
+
+
+
+

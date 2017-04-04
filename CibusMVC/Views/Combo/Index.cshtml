@@ -1,0 +1,74 @@
+﻿@using CibusMVC.Models;
+@model IEnumerable<CibusMVC.Models.ComboRestaurante>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
+<!--<h2>Index</h2>-->
+
+@Html.AntiForgeryToken()
+
+<section id="blog" class="padding-side-50">
+    <!--<div class="e-divider-8"></div>
+    <div class="e-divider-4"></div>-->
+    <div class="grid container-fluid e-text-center">
+        <div class="item-wrap">
+            <div class="col-md-7" style="margin-top:8em">
+                <h3>@Html.DisplayFor(modelItem => Model.Cast<ComboRestaurante>().First().Restaurante.Nombre)</h3>
+            </div>
+            <figure class="effect-goliath">
+                <div class="col-md-5">
+                    <img src="@Url.Content(Model.Cast<ComboRestaurante>().First().Restaurante.Logo)" style="width: 353px; height:353px" alt="img11" />
+                    <div></div>
+                </div>
+
+            </figure>
+            <hr style="border: 0; border-top: 1px solid #999; border-bottom: 1px solid #333; height:0;" />
+        </div>
+
+        <div id="posts" class="row popup-container">
+
+            @foreach (var item in Model)
+
+            {
+                <div class="grid-item grid-sizer branding design @*col-md-4*@ col-sm-6">
+                    <div class="item-wrap">
+                        <figure id="@Html.DisplayFor(modelItem => item.IdComboRestaurante)" class="">
+
+
+                            <img src="@Url.Content(item.Imagen)" style="width: 300px; height:350px" alt="img11" />
+                            <figcaption>
+
+                                <div class="post-header">
+                                        <h5>@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                                    </div>
+                                <div>
+                                    <p class="text-primary" style="margin-left:1em;text-transform: fullsize-kana">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                                    <div style="margin-top:0.5em">
+                                        <div class="col-md-2">Precio:</div>
+                                        <span>RD$@Html.DisplayFor(modelItem => item.Precio)</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top:0.5em">
+                                    
+                                    <div class="col-md-5">
+                                        <button class="btn btn-primary btn-lg active"> @Html.ActionLink("Seleccionar", "AddToCart", "ShoppingCart", new { id = item.IdComboRestaurante }, "")</button>
+                                        
+                                    </div>
+
+
+                                </div>
+
+                            </figcaption>
+
+                        </figure>
+                        <hr />
+                    </div>
+                </div>
+
+            }
+
+        </div>
+        <hr style="border: 0; border-top: 1px solid #999; border-bottom: 1px solid #333; height:0;" />
+    </div>
+</section>

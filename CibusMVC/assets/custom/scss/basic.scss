@@ -1,0 +1,208 @@
+
+
+
+// Body
+
+body {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: $color10;
+  font: 14px/1.7 $font-regular;
+  //letter-spacing: .3px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
+  background-color: $color00;
+}
+.boxed {
+  display: block;
+  background-color: #676767;
+  background-image: url('../images/backgrounds/low_contrast_linen.png');
+  position: relative;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px 4px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $color10;
+
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+
+  &:hover {  color: $hovercolor;  }
+  &:focus {  outline: none;  }
+  &:hover, &:focus {  text-decoration: none;  }
+}
+
+i {  color: $color05;  }
+
+// Loader
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background-color: #f2f2f2; }
+#preloader img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%); }
+
+
+// Unordered list
+ul {
+  padding-left: 0;
+  list-style: none;
+  margin-left: 0px;
+  li {  padding: 0px;
+    a {
+      cursor: pointer;
+      //color: $color06;
+      &:hover {}
+    }
+  }
+  li, li a {  font-size: 13px;  }
+}
+
+ul.list-o {
+  list-style: none;
+  padding:0;
+  margin:0;
+  li {
+    padding-left: 1em;
+    text-indent: -.7em;
+    &:before {
+      padding-right: 4px;
+      content: "O";
+      //color: $hovercolor;
+    }
+  }
+}
+
+
+// Side Paddings
+
+.padding-side-30 {padding: 0 30px;}
+.padding-side-40 {padding: 0 40px;}
+.padding-side-50 {padding: 0 50px;}
+.padding-side-60 {padding: 0 60px;}
+
+
+/* No Padding elements */
+.row-no-padding { [class*="col-"] {  padding-left: 0 !important;  padding-right: 0 !important;  } }
+.nopadding {  padding: 0 !important;  margin: 0 !important;  }
+
+
+/* Dividers */
+.e-divider-1        {  height: 10px;  }
+.e-divider-2        {  height: 20px;  }
+.e-divider-3        {  height: 30px;  }
+.e-divider-4        {  height: 40px;  }
+.e-divider-5        {  height: 50px;  }
+.e-divider-6        {  height: 60px;  }
+.e-divider-8        {  height: 80px;  }
+.e-divider-9        {  height: 90px;  }
+.e-divider-10       {  height: 100px; }
+.e-divider-15       {  height: 150px; }
+.e-divider-20       {  height: 200px; }
+.e-divider-dynamic  {  height: 32px;  }
+
+
+/* Heights */
+.e-height-500       {  min-height: 500px;  }
+.e-height-400       {  min-height: 400px;  }
+.e-height-300       {  min-height: 300px;  }
+.e-height-200       {  min-height: 200px;  }
+.e-height-100       {  min-height: 100px;  }
+
+
+/* Position */
+.e-absolute {position: absolute !important;}
+.e-relative {position: relative !important;}
+.e-fixed {position: fixed !important;}
+
+// Display
+.e-inline { display: inline;}
+.e-block {  display: block;  }
+.e-inline-block {  display: inline-block;  }
+.e-centered {margin: 0 auto;}
+
+.e-hidden {  display: none;  }
+
+// Text
+.e-uppercase {text-transform: uppercase;}
+.e-hidden {  display: none;  }
+.e-respon-wrap img {
+  max-width:100% !important;
+  height:auto;
+  display:block;
+}
+
+// Widths
+.e-fullwidth  {  width: 100% !important;  }
+.e-width-90   {  width: 90%;  }
+.e-width-80   {  width: 80%;  }
+.e-width-70   {  width: 70%;  }
+.e-width-60   {  width: 60%;  }
+.e-width-50   {  width: 50%;  }
+
+//Clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+button, input, select, textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  vertical-align: baseline;
+  font-size: 100%;
+}
+
+input, textarea, button {
+  color: #777;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: $font-regular;
+}
+
+input, textarea {
+  border: 1px solid $color01;
+  background: $color00;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  text-indent: 14px;
+  color: $color12;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  &:focus {  outline: 0; border-color: $color03;  }
+}

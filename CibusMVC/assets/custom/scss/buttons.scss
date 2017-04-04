@@ -1,0 +1,31 @@
+
+
+/* Button Sizes */
+.btn-lg {font-size: 15px;}
+.btn-default {font-size: 13px;}
+.btn-sm {font-size: 12px;}
+.btn-xs {font-size: 11px; padding: 3px 9px;}
+
+/* Button Types */
+.btn-blk
+ {
+  letter-spacing: 0;
+  border-radius: 2px;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+}
+
+.btn-blk {
+  font-family: $font-accident-one-normal;
+  font-style: oblique !important;
+  border: 1px solid $color08;
+  background: $color08;
+  margin-bottom: 12px;
+  color: $color00 !important;;
+  &:hover {  border-color: $hovercolor; background: $hovercolor; color: $color00 !important;  }
+  &:focus {  border-color: $hovercolor; background: $hovercolor; color: $color00 !important;  }
+}
+

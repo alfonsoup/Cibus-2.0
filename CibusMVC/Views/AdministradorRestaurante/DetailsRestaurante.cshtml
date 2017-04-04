@@ -1,0 +1,55 @@
+﻿@model CibusMVC.Models.Restaurante
+
+@{
+    ViewBag.Title = "DetailsRestaurante";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<div style="margin:3em;margin-top:8em">
+    <h2>DETALLES DEL RESTAURANTE</h2>
+
+    <div>
+        <hr style="border-color: Highlight;border-width:0.5em; " />
+
+        <strong>Detalles:</strong>
+       
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Logo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Logo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tipo)
+            </dd>
+
+        </dl>
+    </div>
+    <hr style="border-color: Highlight;border-width:0.4em; margin-top:2em" />
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdRestaurante }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

@@ -1,0 +1,61 @@
+﻿@model CibusMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<div style="margin:3em; margin-top:8em">
+    <h2>ELIMINAR USUARIO</h2>
+
+    <h3>Esta seguro que desea eliminar este usuario?</h3>
+    <hr style="border-color: Highlight;border-width:0.5em; " />
+    <div>
+        <strong>Detalles del usuario:</strong>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Restaurante.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Restaurante.Nombre)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> 
+                <div  style="margin-top:3em">@Html.ActionLink("<<-- Volver a Usuarios.", "Index")</div>
+                
+            </div>
+        }
+    </div>
+</div>
