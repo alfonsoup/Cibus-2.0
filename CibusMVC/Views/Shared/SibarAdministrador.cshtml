@@ -10,10 +10,9 @@
         
         <li><a href='@Url.Action("Index","AdministradorRestaurante")' class="current"><span class="glyphicon glyphicon-glass" aria-hidden="true" style="font-size: 18px"></span>- Restaurantes</a></li>
         <li><a href='@Url.Action("Index","AdministradorComboRestaurantes")' class="current"><span class="glyphicon glyphicon-th-list" aria-hidden="true" style="font-size: 18px"></span>- Combos</a></li>
-        <li><a href='@Url.Action("Index","AdministradorUsuario")' class="current"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 18px"></span>- Usuarios</a></li>
+        @*<li><a href='@Url.Action("Index","AdministradorUsuario")' class="current"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 18px"></span>- Usuarios</a></li>*@
 
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-
+        
 
         @*@Html.ActionLink("Hello " + User.Identity.IsAdmin() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
 
@@ -28,20 +27,25 @@
 
     <div class="e-divider-4"><hr></div>
 
-    
-        <div style="margin-left:5em">
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+                <div style="margin-left:5em">
             <div>
                 <img style="width:130px; height:130px; margin-left:0.97em" src="~/assets/custom/images/default-user.png" />
 
             </div>
             <div style="margin-top:1.5em">
-                <h5 class="current" style="color:white; margin-left:2em" >NombreUsuario</h5>
-
+                <h5>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "current", @style = "color:white; margin-left:2em" })</h5>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>   
             </div>
             
 
         </div>
-        
+        }
+    }
         <!--
             <div id="filters" class="port-filter text-right grid-item">
         </div>

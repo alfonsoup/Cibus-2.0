@@ -10,7 +10,7 @@ using CibusMVC.Models;
 
 namespace CibusMVC.Controllers
 {
-
+    [Authorize]
     public class AdministradorRestauranteController : Controller
     {
 

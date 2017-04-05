@@ -11,19 +11,20 @@ using CibusMVC.Models;
 
 namespace CibusMVC.Controllers
 {
+    //[Authorize]
     public class AdministradorUsuarioController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
-        //private IUsuarioRepository usuarioRepository;
+
+        //private IUsuarioRepository usuariorepository;
         //public AdministradorUsuarioController()
         //{
-        //    this.usuarioRepository = new UsuarioRepository(new CibusDB2Entities());
+        //    this.usuariorepository = new UsuarioRepository(new ApplicationDbContext());
         //}
 
-        //public  AdministradorUsuarioController(IUsuarioRepository usuarioRepository)
+        //public  AdministradorUsuarioController(IUsuarioRepository usuariorepository)
         //{
-        //    this.usuarioRepository = usuarioRepository;
+        //    this.usuariorepository = usuariorepository;
         //}
 
         //// GET: AdministradorUsuario
