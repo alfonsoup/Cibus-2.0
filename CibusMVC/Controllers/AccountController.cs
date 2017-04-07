@@ -57,6 +57,11 @@ namespace CibusMVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "AdministradorComboRestaurantes");
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -136,11 +141,23 @@ namespace CibusMVC.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize]
         public ActionResult Register()
         {
+            string email = System.Web.HttpContext.Current.User.Identity.Name.ToString();
+
+            var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByEmail(email);
+            if (!user.IsAdmin)
+            {
+                return RedirectToAction("Index", "AdministradorComboRestaurantes");
+            }
+            else
+            { 
             return View();
-        }
+             }
+    }
 
         //
         // POST: /Account/Register
@@ -157,6 +174,7 @@ namespace CibusMVC.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
+                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -164,6 +182,7 @@ namespace CibusMVC.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "AdministradorComboRestaurantes");
+                    //Crear un View con mensaje de se agrego el usuario correctamente
                 }
                 AddErrors(result);
             }
@@ -449,7 +468,7 @@ namespace CibusMVC.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "AdministradorComboRestaurantes");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

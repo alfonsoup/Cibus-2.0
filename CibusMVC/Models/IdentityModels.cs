@@ -11,12 +11,6 @@ namespace CibusMVC.Models
     public class ApplicationUser : IdentityUser
     {
 
-        public bool IsAdmin { get; set; }
-        public string Nombre { get; set; }
-        public int IdRestaurante { get; set; }
-
-        public virtual Restaurante Restaurante { get; set; }
-
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -24,8 +18,15 @@ namespace CibusMVC.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             userIdentity.AddClaim(new Claim("IsAdmin", IsAdmin + ""));
+            userIdentity.AddClaim(new Claim("IdRestaurante", this.IdRestaurante.ToString()));
             return userIdentity;
         }
+
+        public bool IsAdmin { get; set; }
+        public string Nombre { get; set; }
+        public int? IdRestaurante { get; set; }
+
+        public virtual Restaurante Restaurante { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

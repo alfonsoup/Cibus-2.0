@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CibusMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -16,13 +17,22 @@ namespace CibusMVC.Models
             {
                 throw new ArgumentNullException("identity");
             }
-            var ci = identity as ClaimsIdentity;
+             var ci = identity as ClaimsIdentity;
+           
             if (ci != null)
             {
                 return ci.IsAdmin(); // FindFirstValue("IsAdmin");
             }
             return false;
         }
+
+        public static string GetIdRestaurante(this IIdentity identity)
+        {
+            var claim = ((ClaimsIdentity)identity).FindFirst("IdRestaurante");
+            // Test for null to avoid issues during local testing
+            return (claim != null) ? claim.Value : string.Empty;
+        }
+
     }
 }
     

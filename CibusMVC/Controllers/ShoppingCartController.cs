@@ -49,7 +49,7 @@ namespace CibusMVC.Controllers
             // Remove the item from the cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            // Get the name of the album to display confirmation
+            // Get the name of the combo to display confirmation
             string comboName = db.Carts
                 .Single(item => item.RecordId == id).ComboRestaurante.Nombre;
 

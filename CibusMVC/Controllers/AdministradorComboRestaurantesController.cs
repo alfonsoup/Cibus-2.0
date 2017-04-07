@@ -24,19 +24,24 @@ namespace CibusMVC.Controllers
         // GET: AdministradorComboRestaurantes
         public ActionResult Index()
         {
-          
+
             string email = System.Web.HttpContext.Current.User.Identity.Name.ToString();
 
             var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             var user = userManager.FindByEmail(email);
-          
+
             //user.IdRestaurante
             //var comboRestaurante = db.ComboRestaurantes.Include(c => c.Restaurante);
-
-
+            if (user.IsAdmin)
+            {
+                return RedirectToAction("Index", "AdministradorRestaurante");
+            }
+            else
+            { 
             var comboRestaurante = db.ComboRestaurantes.Where(c => c.IdRestaurante == user.IdRestaurante);
             return View(comboRestaurante.ToList());
+            }
         }
 
         // GET: AdministradorComboRestaurantes/Details/5

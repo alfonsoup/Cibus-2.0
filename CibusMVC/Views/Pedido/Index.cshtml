@@ -1,11 +1,12 @@
-﻿@*@model IEnumerable<CibusMVC.DetallePedido>*@
+﻿@*@model IEnumerable < CibusMVC.Models.Algo>*@
 
 @using CibusMVC.ViewModels;
 @model CibusMVC.ViewModels.DetallePedidoViewModel
 
+
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <h2>Detalles del pedido</h2>
@@ -34,42 +35,48 @@
                     <td>@Html.DisplayFor(modelItem => pedido.Total)</td>
                 </tr>
             </table>
+                foreach (var algo in Model.AlgoAll)
+                {
 
+                   if (algo.IdPedido == pedido.IdPedido)
+                   {
             <table class="table">
                 <tr>
                     <th>Restaurante</th>
                     <th> Combo</th>
                     <th>Cantidad </th>
-                    <th>Tamaño</th>
+               
                     <th>Precio Unitario</th>
                     <th>Precio Total</th>
 
                 </tr>
 
-                @foreach (var detalle in Model.DetallesPedidosAll)
-                {
+
+
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => detalle.ComboRestaurante.Restaurante.Nombre)
+                            @Html.DisplayFor(modelItem => algo.ResName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => detalle.ComboRestaurante.Nombre)
+                            @Html.DisplayFor(modelItem => algo.ComboResNombre)
                         </td>
-                        <td>@Html.DisplayFor(modelItem => detalle.Cantidad)</td>
+                        <td>@Html.DisplayFor(modelItem => algo.Cantidad)</td>
                      
                         <td>
-                            @Html.DisplayFor(modelItem => detalle.ComboRestaurante.Precio)
+                            @Html.DisplayFor(modelItem => algo.PrecioUnitario)
                         </td>
-                        <td>@(detalle.Cantidad * detalle.ComboRestaurante.Precio)</td>
+                        <td>@(algo.Cantidad * algo.PrecioUnitario)</td>
                      
                     </tr>
-                }
+                
+                    
+                
 
             </table>
-            <h3> <button>Confirmar</button></h3>
+            @*<h3> <button>Confirmar</button></h3>*@
+                   }
+                }
             }
-
-
         </div>
     </div>
 

@@ -23,7 +23,6 @@ namespace CibusMVC.Controllers
            
             pedido.IdCliente = ip; //HttpContext.Request.UserHostAddress;
             pedido.Fecha = DateTime.Now;
-
             db.Pedidos.Add(pedido);
             db.SaveChanges();
 
@@ -39,7 +38,7 @@ namespace CibusMVC.Controllers
             string ip = null;
             var pedido = new Pedido();
              ip = HttpContext.Request.ServerVariables["REMOTE_ADDR"];
-            ip=ip.Remove(0, 7);
+            ip = ip.Remove(0, 7);
             // Validate customer owns this order
             bool isValid = db.Pedidos.Any(
                 o => o.IdPedido == id &&

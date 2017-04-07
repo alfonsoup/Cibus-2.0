@@ -7,6 +7,8 @@ using CibusMVC.DAL;
 using System.Data.Entity;
 using System.Net;
 using CibusMVC.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace CibusMVC.Controllers
 {
@@ -18,6 +20,15 @@ namespace CibusMVC.Controllers
         // GET: AdministradorRestaurante
         public ActionResult Index()
         {
+            string email = System.Web.HttpContext.Current.User.Identity.Name.ToString();
+
+            var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = userManager.FindByEmail(email);
+            if (!user.IsAdmin)
+            {
+                return RedirectToAction("Index", "AdministradorComboRestaurantes");
+            }   
             IEnumerable<Restaurante> restaurante = restauranteRepository.GetRestaurantes();
             return View(restaurante);
         }

@@ -175,7 +175,9 @@ namespace CibusMVC.Models
 
             }
             // Set the order's total to the orderTotal count
-            order.Total = orderTotal;
+           // order.Total = orderTotal;
+            var pedido1 = db.Pedidos.Find(order.IdPedido);
+            pedido1.Total = orderTotal;
 
             // Save the order
             db.SaveChanges();

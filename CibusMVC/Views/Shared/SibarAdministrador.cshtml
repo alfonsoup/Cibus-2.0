@@ -7,10 +7,19 @@
         <li class="sidebar-brand">
             <a href="#"><img src="~/assets/custom/images/logo01.png" width="180" alt="logo"></a>
         </li>
+        @if (Request.IsAuthenticated)
+        {
+           
+
+        <li><a href='@Url.Action("Index", "AdministradorRestaurante")' class="current"><span class="glyphicon glyphicon-glass" aria-hidden="true" style="font-size: 18px"></span>- Restaurantes</a></li>
+        <li><a href='@Url.Action("Register", "Account")' class="current"><span class="glyphicon glyphicon-glass" aria-hidden="true" style="font-size: 18px"></span>- Crear usuario</a></li>
         
-        <li><a href='@Url.Action("Index","AdministradorRestaurante")' class="current"><span class="glyphicon glyphicon-glass" aria-hidden="true" style="font-size: 18px"></span>- Restaurantes</a></li>
-        <li><a href='@Url.Action("Index","AdministradorComboRestaurantes")' class="current"><span class="glyphicon glyphicon-th-list" aria-hidden="true" style="font-size: 18px"></span>- Combos</a></li>
-        @*<li><a href='@Url.Action("Index","AdministradorUsuario")' class="current"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 18px"></span>- Usuarios</a></li>*@
+
+        <li><a href='@Url.Action("Index", "AdministradorComboRestaurantes")' class="current"><span class="glyphicon glyphicon-th-list" aria-hidden="true" style="font-size: 18px"></span>- Combos</a></li>
+        <li><a href='@Url.Action("Index", "Pedido")' class="current"><span  style="font-size: 18px"></span>- ordenes</a></li>
+             }
+
+    @*<li><a href='@Url.Action("Index","AdministradorUsuario")' class="current"><span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 18px"></span>- Usuarios</a></li>*@
 
         
 
@@ -39,7 +48,15 @@
             </div>
             <div style="margin-top:1.5em">
                 <h5>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "current", @style = "color:white; margin-left:2em" })</h5>
+                
                 <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>   
+         @*@if (User.Identity.IsAdmin)
+         {
+                <p>
+            @Html.ActionLink("Registrar un nuevo Usuario", "Register")
+        </p>
+
+         }*@
             </div>
             
 

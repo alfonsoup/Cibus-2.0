@@ -10,6 +10,7 @@ namespace CibusMVC.DAL
     public class PedidoRepository :IPedidoRepository, IDisposable
     {
         private ApplicationDbContext context;
+        
 
         public PedidoRepository(ApplicationDbContext context)
         {
