@@ -12,6 +12,7 @@ namespace CibusMVC.Models
         public int IdPedido { get; set; }
         public Nullable<int> Cantidad { get; set; }
         public Nullable<decimal> PrecioUnitario { get; set; }
+       
     
         public virtual ComboRestaurante ComboRestaurante { get; set; }
         public virtual Pedido Pedido { get; set; }

@@ -20,63 +20,53 @@
     
     <div class="grid container-fluid e-text-center">
         <div id="posts" class="row popup-container">
-            @foreach (var pedido in Model.PedidosAll)
-            {
 
             <table class="table">
                 <tr>
-                    <td>Cliente</td>
+                    <td>Pedido</td>
+                    <td>Mesa</td>
                     <td>Fecha</td>
-                    <td>Total</td>
-                </tr>
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => pedido.IdCliente)</td>
-                    <td>@Html.DisplayFor(modelItem => pedido.Fecha)</td>
-                    <td>@Html.DisplayFor(modelItem => pedido.Total)</td>
-                </tr>
-            </table>
-                foreach (var algo in Model.AlgoAll)
-                {
-
-                   if (algo.IdPedido == pedido.IdPedido)
-                   {
-            <table class="table">
-                <tr>
-                    <th>Restaurante</th>
+                    @*<td>Total</td>*@
                     <th> Combo</th>
                     <th>Cantidad </th>
-               
                     <th>Precio Unitario</th>
                     <th>Precio Total</th>
 
                 </tr>
 
+            @foreach (var algo in Model.AlgoAll)
+            {
+               
 
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => algo.IdPedido)</td>
+                        <td>@Html.DisplayFor(modelItem => algo.IdCliente)</td>
+                    <td>@Html.DisplayFor(modelItem => algo.Fecha)</td>
+                            <td>
+                               @Html.DisplayFor(modelItem => algo.ComboResNombre)
+                            </td>
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => algo.ResName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => algo.ComboResNombre)
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => algo.Cantidad)</td>
-                     
-                        <td>
-                            @Html.DisplayFor(modelItem => algo.PrecioUnitario)
-                        </td>
-                        <td>@(algo.Cantidad * algo.PrecioUnitario)</td>
-                     
-                    </tr>
-                
+                            <td>@Html.DisplayFor(modelItem => algo.Cantidad)  </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => algo.PrecioUnitario)
+                            </td>
+                            <td>@(algo.Cantidad * algo.PrecioUnitario)</td>
+
                     
-                
+          
 
+
+                    </tr>
+
+                 
+
+
+            }
+              
             </table>
             @*<h3> <button>Confirmar</button></h3>*@
-                   }
-                }
-            }
+                @*}*@
         </div>
     </div>
 

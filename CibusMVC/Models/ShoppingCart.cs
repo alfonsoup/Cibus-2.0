@@ -47,6 +47,7 @@ namespace CibusMVC.Models
                     CartId = ShoppingCartId,
                     Cantidad = 1,
                     FechaCreacion = DateTime.Now
+
                     //,RecordId = null
                 };
                 db.Carts.Add(cartItem);
@@ -166,7 +167,9 @@ namespace CibusMVC.Models
                     IdComboRestaurante = item.IdComboRestaurante,
                     IdPedido = order.IdPedido,
                     PrecioUnitario = item.ComboRestaurante.Precio,
-                    Cantidad = item.Cantidad
+                    Cantidad = item.Cantidad,
+                  
+                    
                 };
                 // Set the order total of the shopping cart
                 orderTotal += (item.Cantidad * item.ComboRestaurante.Precio);

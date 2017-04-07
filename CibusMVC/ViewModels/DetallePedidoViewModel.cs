@@ -10,7 +10,7 @@ namespace CibusMVC.ViewModels
     public class DetallePedidoViewModel
     {
         public List<Algo> AlgoAll { get; set; }
-        public List<Pedido> PedidosAll { get; set; }
+        public List<PedidoId> PedidosAll { get; set; }
       
     }
 }
