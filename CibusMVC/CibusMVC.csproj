@@ -238,6 +238,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\PedidoId.cs" />
     <Compile Include="Models\Restaurante.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

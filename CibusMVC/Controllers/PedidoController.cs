@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CibusMVC.Models;
 using CibusMVC.DAL;
 using CibusMVC.ViewModels;
-using System.Net.Http;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 
@@ -71,6 +69,60 @@ namespace CibusMVC.Controllers
                 var restaurantes = restauranteRepository.GetRestaurantes();
                 var comboRestaurante = comboRestauranteRepository.GetComboRestaurantes();
                 //Algo algo = new Algo();
+
+
+                IEnumerable<PedidoId> idPedido = (from a in restaurantes
+                                                  join b in comboRestaurante on a.IdRestaurante equals b.IdRestaurante
+                                                  join c in detallesPedidos on b.IdComboRestaurante equals c.IdComboRestaurante
+                                                  join d in pedidos on c.IdPedido equals d.IdPedido
+                                                  where b.IdRestaurante == IdRestaurante
+                                                  select new PedidoId
+                                                  {
+                                                      IdCliente = d.IdCliente,
+                                                      Fecha = d.Fecha,
+                                                      idPedido = c.IdPedido
+                                                  });
+                //idPedido.ToList();
+                //int var1 = 0, var2 = 0,ind=0;
+                //List<PedidoId> id = new List<PedidoId>(5);
+                
+                //if (idPedido.Count() > 1)
+                //{
+                //    for (int i = 0; i < idPedido.Count(); i++)
+                //    {
+                //        if ((i + 1) < idPedido.Count()) { 
+                //        var1 = System.Convert.ToInt32(idPedido.ElementAt(i).idPedido);
+                //        var2 = System.Convert.ToInt32(idPedido.ElementAt(i + 1).idPedido);
+                //        if ((i + 1) > idPedido.Count())
+                //        {
+                //            id.Add(idPedido.ElementAt(ind));
+                //            id.ElementAt(ind).idPedido = (var1);
+                //            id.ElementAt(ind).IdCliente = (idPedido.ElementAt(i).IdCliente);
+                //            id.ElementAt(ind).Fecha = idPedido.ElementAt(i).Fecha;
+                //            ind++;
+
+                //            break;
+                //        }
+                //        else if (var1.Equals(var2))
+                //        {
+
+                //        }
+                //        else
+                //        {
+                //            id.Add(idPedido.ElementAt(ind));
+                //            id.ElementAt(ind).idPedido = (var1);
+                //            id.ElementAt(ind).IdCliente = idPedido.ElementAt(i).IdCliente;
+                //            id.ElementAt(ind).Fecha = idPedido.ElementAt(i).Fecha;
+                //            ind++;
+                //        }
+                //    }
+                //    }
+                //    id.Add(idPedido.ElementAt(ind));
+                //    id.ElementAt(ind).idPedido = var1;
+
+                //}
+
+                //id.ToList();
                 IEnumerable<Algo> algo2 = (from a in restaurantes
                                            join b in comboRestaurante on a.IdRestaurante equals b.IdRestaurante
                                            join c in detallesPedidos on b.IdComboRestaurante equals c.IdComboRestaurante
@@ -90,14 +142,61 @@ namespace CibusMVC.Controllers
                                                Fecha = d.Fecha,
                                                Total = d.Total
                                            });
+
+                //algo2 = algo2.ToList();
+                //idPedido = idPedido.ToList();
+
+
                 DetallePedidoViewModel dpv = new DetallePedidoViewModel();
                 dpv.AlgoAll = algo2.ToList();
-                dpv.PedidosAll = pedidos.ToList();
+                dpv.PedidosAll = idPedido.ToList();
+                //dpv.PedidosAll = id.ToList();
+                //dpv.PedidosAll = pedidos.ToList();
 
 
 
 
                 return View(dpv);
+                //List<Algo> pedidoRest = new List<Algo>();
+               
+                //int indice = 0;
+                ////int ind=0;
+                ////pedidoRest.Capacity = algo2.Count();
+                //decimal? TotalPedido = 0;
+                //int flag = 0;
+                //int cant=0;
+
+                //foreach (Algo id in algo2)
+                //{
+                //   pedidoRest.Add(id);
+                    
+                //    foreach (Algo pedido in algo2)
+                //    {
+                //        if (pedido.IdPedido.Equals(id.IdPedido))
+                //        {
+                                
+                //                pedidoRest.ElementAt(indice).nombreCombo.Add(pedido.ComboResNombre);
+                //                pedidoRest.ElementAt(indice).cantidad.Add(pedido.Cantidad);
+                //                pedidoRest.ElementAt(indice).precioUnitario.Add(pedido.PrecioUnitario);
+                //                pedidoRest.ElementAt(indice).precioTotal.Add(pedido.PrecioUnitario * pedido.Cantidad);
+                //                TotalPedido += (pedido.PrecioUnitario * pedido.Cantidad);
+                               
+                            
+                            
+                //        }
+                        
+                //    }
+
+                //    pedidoRest.ElementAt(indice).IdCliente = id.IdCliente;
+                //    pedidoRest.ElementAt(indice).Fecha = id.Fecha;
+                //    pedidoRest.ElementAt(indice).TotalPedido = TotalPedido;
+                //    indice++;
+                   
+                //    TotalPedido = 0;
+                
+                //}
+
+
                 //    from s in detallePedidoRepository.GetDetallePedidos() select s;
                 //return View(pedido);
                 //}

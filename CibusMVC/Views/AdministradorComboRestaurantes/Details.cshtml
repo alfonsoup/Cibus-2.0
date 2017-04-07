@@ -4,56 +4,62 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
+<div style="margin:3em; margin-top:6EM">
 
-<h2>Details</h2>
+    <h2>Detalles del Combo:</h2>
 
-<div>
-    <h4>ComboRestaurante</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+    <div>
+        
+        <hr style="border-color: Highlight;border-width:0.5em; " />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Imagen)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Imagen)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Restaurante.Nombre)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Restaurante.Nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Restaurante.Nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Restaurante.Nombre)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdComboRestaurante }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <hr style="border-color: Highlight;border-width:0.4em; " />
+
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.IdComboRestaurante }) |
+        @Html.ActionLink("<<-- Volver atrás.", "Index")
+    </p>
+    </div>
+
+    

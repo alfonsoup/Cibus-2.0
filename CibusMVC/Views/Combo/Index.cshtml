@@ -39,8 +39,8 @@
                             <img src="@Url.Content(item.Imagen)" style="width: 300px; height:350px" alt="img11" />
                             <figcaption>
 
-                                <div class="post-header">
-                                        <h5>@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                                <div class="post-header" style="margin-left:1em">
+                                        <h4>@Html.DisplayFor(modelItem => item.Nombre)</h4>
                                     </div>
                                 <div>
                                     <p class="text-primary" style="margin-left:1em;text-transform: fullsize-kana">@Html.DisplayFor(modelItem => item.Descripcion)</p>
@@ -51,9 +51,10 @@
                                 </div>
                                 <div style="margin-top:0.5em">
                                     
-                                    <div class="col-md-5">
-                                        <button class="btn btn-primary btn-lg active"> @Html.ActionLink("Seleccionar", "AddToCart", "ShoppingCart", new { id = item.IdComboRestaurante }, "")</button>
-                                        
+                                    <div class="col-md-5" style="margin-top:0.5em">
+                                        <button class="btn btn-group btn-lg active"> @Html.ActionLink("Seleccionar", "AddToCart", "ShoppingCart", new { id = item.IdComboRestaurante},"")</button>
+                                                                                      
+
                                     </div>
 
 
