@@ -36,8 +36,6 @@
 
             @foreach (var algo in Model.AlgoAll)
             {
-               
-
                 <tr>
                     <td>@Html.DisplayFor(modelItem => algo.IdPedido)</td>
                         <td>@Html.DisplayFor(modelItem => algo.IdCliente)</td>
@@ -52,9 +50,6 @@
                                 @Html.DisplayFor(modelItem => algo.PrecioUnitario)
                             </td>
                             <td>@(algo.Cantidad * algo.PrecioUnitario)</td>
-
-                    
-          
 
 
                     </tr>
