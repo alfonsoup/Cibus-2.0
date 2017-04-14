@@ -1,5 +1,6 @@
 ﻿using CibusMVC.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -70,7 +71,8 @@ namespace CibusMVC.DAL
 
         public IEnumerable<Restaurante> GetRestaurantesByTipo(string tipo)
         {
-            var rest = from b in context.Restaurantes
+           
+               var rest= from b in context.Restaurantes
                         where b.Tipo.Equals(tipo)
                         select b;
 

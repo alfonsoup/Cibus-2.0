@@ -7,12 +7,10 @@ namespace CibusMVC.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.DetallePedidoes", "IsProcesado", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.DetallePedidoes", "IsProcesado");
         }
     }
 }

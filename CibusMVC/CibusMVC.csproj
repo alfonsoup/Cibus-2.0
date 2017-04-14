@@ -228,13 +228,9 @@
     <Compile Include="Migrations\201704040344133_CibusEntities.Designer.cs">
       <DependentUpon>201704040344133_CibusEntities.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704071731063_Initial.cs" />
-    <Compile Include="Migrations\201704071731063_Initial.Designer.cs">
-      <DependentUpon>201704071731063_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704071742173_Initial1.cs" />
-    <Compile Include="Migrations\201704071742173_Initial1.Designer.cs">
-      <DependentUpon>201704071742173_Initial1.cs</DependentUpon>
+    <Compile Include="Migrations\201704071803287_Initial.cs" />
+    <Compile Include="Migrations\201704071803287_Initial.Designer.cs">
+      <DependentUpon>201704071803287_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -627,11 +623,8 @@
     <EmbeddedResource Include="Migrations\201704040344133_CibusEntities.resx">
       <DependentUpon>201704040344133_CibusEntities.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704071731063_Initial.resx">
-      <DependentUpon>201704071731063_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704071742173_Initial1.resx">
-      <DependentUpon>201704071742173_Initial1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201704071803287_Initial.resx">
+      <DependentUpon>201704071803287_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
